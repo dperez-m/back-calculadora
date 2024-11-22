@@ -49,4 +49,30 @@ jobs:
         with:
           push: true
           tags: ${{ vars.DOCKERUSERNAME }}/back-calculadora:v1
+  dockerToGithub:
+    runs-on: ubuntu-latest
+
+steps:
+  - 
+    uses: actions/checkout@v2
+  - 
+    name: Login to GitHub Container Registry
+
+uses: docker/login-action@v1
+
+with:
+
+registry: ghcr.io
+
+username: ${{ github.actor }}
+
+password: ${{ secrets._TOKEN }}
+
+run: |
+
+       docker build . --tag ghcr.io/dperezm/back-calculadora:v1
+
+       docker run ghcr.io/dperezm/back-calculadora:v1
+
+       docker push ghcr.io/dperezm/back-calculadora:v1
       
