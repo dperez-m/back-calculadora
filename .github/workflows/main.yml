@@ -69,7 +69,5 @@ jobs:
 
          docker build . --tag ghcr.io/dperez-m/back-calculadora:v1
 
-         docker run ghcr.io/dperez-m/back-calculadora:v1
-
          docker push ghcr.io/dperez-m/back-calculadora:v1
       
